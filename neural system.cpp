@@ -1,4 +1,4 @@
-// ===== HEADER INCLUDES =====
+
 #include "SimulationExceptions.h"
 #include "Gate.h"
 #include "MGate.h"
@@ -21,7 +21,7 @@
 #include <cmath>
 #include <algorithm>
 
-// ===== EXCEPTION IMPLEMENTATIONS =====
+
 const char* SimulationException::what() const noexcept {
     return "Simulation error!";
 }
@@ -38,7 +38,7 @@ const char* TimestepException::what() const noexcept {
     return "Timestep too large, simulation unstable!";
 }
 
-// ===== GATE IMPLEMENTATIONS =====
+
 Gate::Gate(double initialP) : P(initialP) {}
 
 Gate::Gate(const Gate& other) : P(other.P) {}
@@ -68,7 +68,7 @@ void Gate::print(std::ostream& os) const {
     os << "Gate [P=" << P << ", type=" << gateType() << "]";
 }
 
-// ===== MGATE IMPLEMENTATIONS =====
+
 std::string MGate::gateType() const {
     return "M (Na activation)";
 }
@@ -85,7 +85,7 @@ double MGate::beta(double V) {
     return 4 * exp(-(V + 65) / 18);
 }
 
-// ===== HGATE IMPLEMENTATIONS =====
+
 std::string HGate::gateType() const {
     return "H (Na inactivation)";
 }
@@ -100,7 +100,7 @@ double HGate::beta(double V) {
     return 1 / (exp(-(V + 35) / 10) + 1);
 }
 
-// ===== NGATE IMPLEMENTATIONS =====
+
 std::string NGate::gateType() const {
     return "N (K activation)";
 }
@@ -117,7 +117,7 @@ double NGate::beta(double V) {
     return 0.125 * exp(-(V + 65) / 80);
 }
 
-// ===== CAMGATE IMPLEMENTATIONS =====
+
 std::string CaMGate::gateType() const {
     return "CaM (Ca activation)";
 }
@@ -134,7 +134,7 @@ double CaMGate::beta(double V) {
     return 0.94 * exp(-(V + 75) / 17);
 }
 
-// ===== CAHGATE IMPLEMENTATIONS =====
+
 std::string CaHGate::gateType() const {
     return "CaH (Ca inactivation)";
 }
@@ -149,7 +149,7 @@ double CaHGate::beta(double V) {
     return 0.0065 / (1 + exp(-(V + 15) / 28));
 }
 
-// ===== CHANNEL IMPLEMENTATIONS =====
+
 Channel::Channel(double gIon, double EIon) : gIon(gIon), EIon(EIon) {
     if (gIon < 0) {
         throw InvalidConductanceException();
@@ -185,7 +185,7 @@ double Channel::getEIon() const {
     return EIon;
 }
 
-// ===== SODIUM CHANNEL IMPLEMENTATIONS =====
+
 SodiumChannel::SodiumChannel(double gIon, double EIon) : Channel(gIon, EIon) {
     mGate = new MGate(0.05);
     hGate = new HGate(0.6);
@@ -210,7 +210,7 @@ Channel* SodiumChannel::clone() const {
     return new SodiumChannel(*this);
 }
 
-// ===== POTASSIUM CHANNEL IMPLEMENTATIONS =====
+
 PotassiumChannel::PotassiumChannel(double gIon, double EIon) : Channel(gIon, EIon) {
     nGate = new NGate(0.32);
     gates.push_back(nGate);
@@ -230,7 +230,7 @@ Channel* PotassiumChannel::clone() const {
     return new PotassiumChannel(*this);
 }
 
-// ===== LEAK CHANNEL IMPLEMENTATIONS =====
+
 leakChannel::leakChannel(double gIon, double EIon) : Channel(gIon, EIon) {}
 
 leakChannel::leakChannel(const leakChannel& other) : Channel(other) {}
@@ -243,7 +243,7 @@ Channel* leakChannel::clone() const {
     return new leakChannel(*this);
 }
 
-// ===== CA CHANNEL IMPLEMENTATIONS =====
+
 CaChannel::CaChannel(double gIon, double EIon) : Channel(gIon, EIon) {
     mGate = new CaMGate(0.0);
     hGate = new CaHGate(1.0);
@@ -268,7 +268,7 @@ Channel* CaChannel::clone() const {
     return new CaChannel(*this);
 }
 
-// ===== NEURON IMPLEMENTATIONS =====
+
 int Neuron::neuronCount = 0;
 
 Neuron::Neuron(double initialV) : V(initialV) {
@@ -345,7 +345,7 @@ void Neuron::clearVoltageTrace() {
     voltageTrace.clear();
 }
 
-// ===== SYNAPSE IMPLEMENTATIONS =====
+
 Synapse::Synapse(Neuron* pre, Neuron* post, double strength)
     : pre(pre), post(post), strength(strength) {}
 
@@ -379,7 +379,7 @@ void Synapse::setSynapticDelay(double delay) {
     synapticDelay = delay;
 }
 
-// ===== NEURAL NETWORK IMPLEMENTATIONS =====
+
 NeuralNetwork::NeuralNetwork() : simTime(0.0) {}
 
 NeuralNetwork::NeuralNetwork(const NeuralNetwork& other) : simTime(0.0) {
@@ -452,7 +452,7 @@ void NeuralNetwork::clearEEGSignal() {
     simTime = 0.0;
 }
 
-// ===== AMYGDALA IMPLEMENTATIONS =====
+
 Amygdala::Amygdala(int numNeurons) : NeuralNetwork() {
     excitatory = numNeurons * 0.8;
     inhibitory = numNeurons * 0.2;
@@ -488,7 +488,7 @@ void Amygdala::setFearState(bool fear) {
 }
 
 
-// ===== MAIN FUNCTION =====
+
 int main() {
     try {
         Amygdala amygdala(100);
