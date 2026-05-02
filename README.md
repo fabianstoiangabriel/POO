@@ -4,15 +4,36 @@
 # Surse de documentare si insppiratie pentru codat si formulele matematice
 
 chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.math.mcgill.ca/gantumur/docs/reps/RyanSicilianoHH.pdf
+
+
 chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://seti.net/Neuron%20Lab/NeuronReferences/Neuroscience%20-%20Bear.pdf
+
+
 https://github.com/Daniel-M/Hodgking-Huxley
+
+
 https://www.youtube.com/watch?v=8-B6ryuBkCM
+
+
 https://www.youtube.com/watch?v=OSAOh4L41Wg
+
+
 https://www.youtube.com/watch?v=E_-lMZDi7Uw
+
+
 https://www.youtube.com/watch?v=ukNbG7muKho
+
+
 https://neuronaldynamics.epfl.ch/online/Ch2.S2.html
+
+
+
 https://stackoverflow.com/questions
+
+
+
 https://www.geeksforgeeks.org/
+
 
 ## Ce face acest proiect
 
