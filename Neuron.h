@@ -23,7 +23,7 @@ public:
         channels.push_back(new SodiumChannel(120.0, 50.0));
         channels.push_back(new PotassiumChannel(36.0, -77.0));
         channels.push_back(new leakChannel(0.3, -54.4));
-        channels.push_back(new CaChannel(1.0, 120.0));
+        
     }
 
     Neuron(const Neuron& other) : V(other.V), C_m(other.C_m), I_ext(other.I_ext) {
@@ -39,9 +39,7 @@ public:
                 channels.push_back(new PotassiumChannel(*potassium));
             } else if (leak) {
                 channels.push_back(new leakChannel(*leak));
-            } else if (ca) {
-                channels.push_back(new CaChannel(*ca));
-            }
+            } 
         }
     }
 
