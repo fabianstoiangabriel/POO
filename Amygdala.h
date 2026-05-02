@@ -45,4 +45,4 @@ public:
     }
 };
 
-#endif // AMYGDALA_H
+#endif 
