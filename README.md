@@ -12,6 +12,10 @@ chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://seti.net/Neuron%20La
 https://github.com/Daniel-M/Hodgking-Huxley
 
 
+
+https://www.researchgate.net/post/How_to_model_Hodgkin-Huxley_neurons_in_MATLAB_from_a_single_cell_to_a_network_simulation
+
+
 https://www.youtube.com/watch?v=8-B6ryuBkCM
 
 
