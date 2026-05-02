@@ -47,4 +47,4 @@ public:
     }
 };
 
-#endif // SYNAPSE_H
+#endif 
