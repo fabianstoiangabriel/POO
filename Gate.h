@@ -90,38 +90,3 @@ public:
     }
 };
 
-class CaMGate : public Gate {
-private:
-    std::string gateType() const override { 
-        return "CaM (Ca activation)"; 
-    }
-public:
-    CaMGate(double initialP) : Gate(initialP) {}
-    
-    double alpha(double V) override {
-        return 0.055 * (V + 27) / (1 - exp(-(V + 27) / 3.8));
-    }
-    
-    double beta(double V) override {
-        return 0.94 * exp(-(V + 75) / 17);
-    }
-};
-
-class CaHGate : public Gate {
-private:
-    std::string gateType() const override { 
-        return "CaH (Ca inactivation)"; 
-    }
-public:
-    CaHGate(double initialP) : Gate(initialP) {}
-    
-    double alpha(double V) override {
-        return 0.000457 * exp(-(V + 13) / 50);
-    }
-    
-    double beta(double V) override {
-        return 0.0065 / (1 + exp(-(V + 15) / 28));
-    }
-};
-
-#endif 
