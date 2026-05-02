@@ -1,4 +1,4 @@
-# Simulare Neurală Hodgkin-Huxley
+# Simulare Neuronala Hodgking-Huxley
 
 
 
