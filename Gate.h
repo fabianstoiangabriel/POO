@@ -124,4 +124,4 @@ public:
     }
 };
 
-#endif // GATE_H
+#endif 
